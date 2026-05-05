@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Warm dark palette — charcoal + cream + ochre */
+  --color-ink-50: #f7f4ee;
+  --color-ink-100: #ece6da;
+  --color-ink-200: #d3cabb;
+  --color-ink-300: #a89e8c;
+  --color-ink-400: #6b6457;
+  --color-ink-500: #4a4339;
+  --color-ink-600: #322d26;
+  --color-ink-700: #221e19;
+  --color-ink-800: #16130f;
+  --color-ink-900: #0c0a08;
+
+  --color-cream: #f5f1ea;
+  --color-cream-soft: #ece6da;
+
+  --color-ochre-300: #e3a06b;
+  --color-ochre-500: #c4711e;
+  --color-ochre-600: #a25a14;
+  --color-ochre-700: #7d4310;
+
+  /* Semantic */
+  --color-background: var(--color-ink-900);
+  --color-foreground: var(--color-cream);
+  --color-muted: var(--color-ink-300);
+  --color-border: color-mix(in oklab, var(--color-cream) 12%, transparent);
+
+  /* Type */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
+
+  --container-page: 1280px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-ochre-500);
+  color: var(--color-ink-900);
 }
